@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse plugin for PEG parser generator
+Bundle-SymbolicName: tk.programmerjake.peg_parser_generator.eclipse;singleton:=true
+Bundle-Version: 0.1.1.1
+Bundle-Activator: tk.programmerjake.peg_parser_generator.eclipse.Activator
+Bundle-Vendor: programmerjake
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
