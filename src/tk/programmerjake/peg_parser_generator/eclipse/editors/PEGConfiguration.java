@@ -28,7 +28,7 @@ public class PEGConfiguration extends SourceViewerConfiguration {
 	@Override
 	public IPresentationReconciler getPresentationReconciler(ISourceViewer sourceViewer) {
 		PresentationReconciler reconciler = new PresentationReconciler();
-		DefaultDamagerRepairer damagerRepairer = new DefaultDamagerRepairer(new PEGTokenScanner(colorManager));
+		PEGDamagerRepairer damagerRepairer = new PEGDamagerRepairer(new PEGTokenScanner(colorManager));
 		reconciler.setDamager(damagerRepairer, IDocument.DEFAULT_CONTENT_TYPE);
 		reconciler.setRepairer(damagerRepairer, IDocument.DEFAULT_CONTENT_TYPE);
 		return reconciler;
