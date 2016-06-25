@@ -245,10 +245,13 @@ final class PEGTokenScanner implements ITokenScanner {
 				tokenLength += next();
 			}
 		}
-		if (isCodeIdentifierStart(peek())) {
-			do
-				tokenLength += next();
-			while (isCodeIdentifierContinue(peek()));
+		if (peek() == quote) {
+			tokenLength += next();
+			if (isCodeIdentifierStart(peek())) {
+				do
+					tokenLength += next();
+				while (isCodeIdentifierContinue(peek()));
+			}
 		}
 		if (quote == '\'')
 			return codeCharToken;
@@ -607,6 +610,7 @@ final class PEGTokenScanner implements ITokenScanner {
 				return codeKeywordToken;
 			if (value.equals("__extension__"))
 				return codeKeywordToken;
+			return codeIdentifierToken;
 		}
 		includeState = IncludeState.Other;
 		if (peek() == '.' || isDigit(peek())) {
@@ -730,6 +734,7 @@ final class PEGTokenScanner implements ITokenScanner {
 			}
 			return codePunctuatorToken;
 		case ':':
+			tokenLength += next();
 			if (peek() == '>') {
 				tokenLength += next();
 				return codePunctuatorToken;
@@ -740,6 +745,7 @@ final class PEGTokenScanner implements ITokenScanner {
 			}
 			return codePunctuatorToken;
 		case '%':
+			tokenLength += next();
 			if (peek() == '>') {
 				tokenLength += next();
 				return codePunctuatorToken;
@@ -754,6 +760,7 @@ final class PEGTokenScanner implements ITokenScanner {
 			}
 			return codePunctuatorToken;
 		case '+':
+			tokenLength += next();
 			if (peek() == '=') {
 				tokenLength += next();
 				return codePunctuatorToken;
@@ -764,6 +771,7 @@ final class PEGTokenScanner implements ITokenScanner {
 			}
 			return codePunctuatorToken;
 		case '-':
+			tokenLength += next();
 			if (peek() == '=') {
 				tokenLength += next();
 				return codePunctuatorToken;
@@ -782,18 +790,21 @@ final class PEGTokenScanner implements ITokenScanner {
 			}
 			return codePunctuatorToken;
 		case '*':
+			tokenLength += next();
 			if (peek() == '=') {
 				tokenLength += next();
 				return codePunctuatorToken;
 			}
 			return codePunctuatorToken;
 		case '^':
+			tokenLength += next();
 			if (peek() == '=') {
 				tokenLength += next();
 				return codePunctuatorToken;
 			}
 			return codePunctuatorToken;
 		case '&':
+			tokenLength += next();
 			if (peek() == '&') {
 				tokenLength += next();
 				return codePunctuatorToken;
@@ -804,6 +815,7 @@ final class PEGTokenScanner implements ITokenScanner {
 			}
 			return codePunctuatorToken;
 		case '|':
+			tokenLength += next();
 			if (peek() == '|') {
 				tokenLength += next();
 				return codePunctuatorToken;
@@ -814,18 +826,21 @@ final class PEGTokenScanner implements ITokenScanner {
 			}
 			return codePunctuatorToken;
 		case '!':
+			tokenLength += next();
 			if (peek() == '=') {
 				tokenLength += next();
 				return codePunctuatorToken;
 			}
 			return codePunctuatorToken;
 		case '=':
+			tokenLength += next();
 			if (peek() == '=') {
 				tokenLength += next();
 				return codePunctuatorToken;
 			}
 			return codePunctuatorToken;
 		case '>':
+			tokenLength += next();
 			if (peek() == '>') {
 				tokenLength += next();
 				if (peek() == '=') {
@@ -950,8 +965,10 @@ final class PEGTokenScanner implements ITokenScanner {
 		case ',':
 			tokenLength += next();
 			return operatorToken;
+		default:
+			tokenLength += next();
+			return Token.UNDEFINED;
 		}
-		return Token.UNDEFINED;
 	}
 
 	@Override
