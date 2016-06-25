@@ -8,8 +8,8 @@ public class PEGEditor extends TextEditor {
 
 	public PEGEditor() {
 		super();
-		setSourceViewerConfiguration(new XMLConfiguration(colorManager));
-		setDocumentProvider(new XMLDocumentProvider());
+		setSourceViewerConfiguration(new PEGConfiguration(colorManager));
+		setDocumentProvider(new PEGDocumentProvider());
 	}
 
 	public void dispose() {
