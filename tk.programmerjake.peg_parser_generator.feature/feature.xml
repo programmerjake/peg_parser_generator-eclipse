@@ -2,7 +2,7 @@
 <feature
       id="tk.programmerjake.peg_parser_generator.feature"
       label="PEG parser generator Eclipse integration"
-      version="0.1.1.5">
+      version="0.1.1.6">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]

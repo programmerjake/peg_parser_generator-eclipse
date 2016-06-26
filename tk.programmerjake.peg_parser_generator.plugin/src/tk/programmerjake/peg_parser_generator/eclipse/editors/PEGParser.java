@@ -491,7 +491,7 @@ final class PEGParser {
 				if (peek == '\"') {
 					if (value.endsWith("R")) {
 						get();
-						ArrayList<Integer> seperator = new ArrayList<>();
+						ArrayList<Integer> seperator = new ArrayList<Integer>();
 						seperator.add((int) ')');
 						while (peek != '(' && peek != ')' && peek != '\"' && peek != EOF && peek != ' ' && peek != ' '
 								&& peek != '\\' && peek != '\t' && peek != '\r' && peek != '\n') {
@@ -502,7 +502,7 @@ final class PEGParser {
 						}
 						get();
 						seperator.add((int) '\"');
-						ArrayDeque<Integer> recentCharacters = new ArrayDeque<>(seperator.size());
+						ArrayDeque<Integer> recentCharacters = new ArrayDeque<Integer>(seperator.size());
 						while (peek != EOF && !isSameSequence(seperator, recentCharacters)) {
 							if (recentCharacters.size() >= seperator.size())
 								recentCharacters.removeFirst();
