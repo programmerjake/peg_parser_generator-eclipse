@@ -19,6 +19,7 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+		tk.programmerjake.peg_parser_generator.eclipse.editors.PEGEditor.class.getName();
 	}
 
 	/*
