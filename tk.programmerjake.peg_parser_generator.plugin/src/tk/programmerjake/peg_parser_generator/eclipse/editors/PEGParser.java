@@ -375,6 +375,8 @@ final class PEGParser {
 				do {
 					get();
 				} while (peek != terminator && peek != EOF && peek != '\r' && peek != '\n');
+				if(peek == terminator)
+					get();
 				includeState = IncludeState.Other;
 				return new Token(TokenType.CodeSnippetHeaderName, tokenStartPosition,
 						currentPosition - tokenStartPosition, syntaxHighlightingConstants.codeHeaderNameTextAttribute,
