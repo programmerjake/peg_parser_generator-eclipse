@@ -980,7 +980,7 @@ final class PEGParser {
 			switch (peek) {
 			case '$':
 				get();
-				if (peek == '$' || peek == EOF || peek == '?') {
+				if (peek == '$' || peek == '_' || peek == '?') {
 					get();
 					return new Token(TokenType.CodeSnippetSubstitution, tokenStartPosition,
 							currentPosition - tokenStartPosition, syntaxHighlightingConstants.substitutionTextAttribute,
