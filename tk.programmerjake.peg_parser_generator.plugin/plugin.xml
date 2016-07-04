@@ -7,7 +7,7 @@
       <editor
             name="PEG Grammar File Editor"
             extensions="peg"
-            icon="icons/sample.gif"
+            icon="icons/peg.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="tk.programmerjake.peg_parser_generator.eclipse.editors.PEGEditor"
             id="tk.programmerjake.peg_parser_generator.eclipse.editors.PEGEditor">

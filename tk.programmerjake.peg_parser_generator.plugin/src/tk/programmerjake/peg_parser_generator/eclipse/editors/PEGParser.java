@@ -375,7 +375,7 @@ final class PEGParser {
 				do {
 					get();
 				} while (peek != terminator && peek != EOF && peek != '\r' && peek != '\n');
-				if(peek == terminator)
+				if (peek == terminator)
 					get();
 				includeState = IncludeState.Other;
 				return new Token(TokenType.CodeSnippetHeaderName, tokenStartPosition,
@@ -1585,7 +1585,8 @@ final class PEGParser {
 			skipTillGrammarStart(ts);
 			return;
 		}
-		if (ts.peek.value.equals("license") || ts.peek.value.equals("header") || ts.peek.value.equals("source")) {
+		if (ts.peek.value.equals("license") || ts.peek.value.equals("header") || ts.peek.value.equals("source")
+				|| ts.peek.value.equals("class")) {
 			ts.peek.style = syntaxHighlightingConstants.keywordTextAttribute;
 		}
 		ts.get();
