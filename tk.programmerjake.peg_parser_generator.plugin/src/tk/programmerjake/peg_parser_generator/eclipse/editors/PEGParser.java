@@ -1327,6 +1327,7 @@ final class PEGParser {
 								get();
 								break;
 							}
+							wasLastStar = get() == '*';
 						}
 						tokens.add(new Token(TokenType.BlockComment, tokenStartPosition,
 								currentPosition - tokenStartPosition,

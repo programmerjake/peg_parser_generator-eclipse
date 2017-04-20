@@ -2,7 +2,7 @@
 <feature
       id="tk.programmerjake.peg_parser_generator.feature"
       label="PEG parser generator Eclipse integration"
-      version="0.1.3.1"
+      version="0.1.3.2"
       provider-name="programmerjake"
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
